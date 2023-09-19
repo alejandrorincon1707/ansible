@@ -1,0 +1,7 @@
+---
+
+- name: rhbicore
+  hosts: rhbicore
+  become: yes
+  roles:
+    - 2-rhbicore

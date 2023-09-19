@@ -1,0 +1,44 @@
+
+- name: Copiar el archivo tpot.conf.dist.rhbicas
+  copy:
+    src: custom_files/tpot.conf.dist.rhbicas
+    dest: /tpot/iso/installer/tpot.conf.dist.rhbicas
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Copiar tpot.conf.dist a tpot.conf
+  command: cp tpot.conf.dist.rhbicas tpot.conf
+  args:
+    chdir: /tpot/iso/installer/
+  register: cp_output
+
+- name: Crear usuario adminrhbicas
+  user:
+    name: adminrhbicas
+    password: "$6$mopVhUcTiaplxWe9$CS1PC3dTUVVvctuJybJjtAHEeiCVZObAWh/eP1SSJ56rDyXjub82LcL/BCGO.ISAN.S1JhR6Ru5xUznBVhrNs."
+ 
+- name: Configurar sudo para adminrhbicas
+  lineinfile:
+    path: /etc/sudoers
+    line: 'adminrhbicas    ALL=(ALL:ALL) ALL'
+    validate: 'visudo -cf %s'
+
+- name: Comentar PasswordAuthentication en sshd_config
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^PasswordAuthentication no'
+    line: '#PasswordAuthentication yes'
+
+- name: Reiniciar SSH
+  service:
+    name: ssh
+    state: restarted
+
+- name: Ejecutar install.sh
+  command: ./install.sh --type=auto --conf=tpot.conf
+  args:
+    chdir: /tpot/iso/installer/
+  
+
+

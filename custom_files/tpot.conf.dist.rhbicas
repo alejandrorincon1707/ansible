@@ -1,0 +1,5 @@
+# tpot configuration file
+# myCONF_TPOT_FLAVOR=[HIVE]
+myCONF_TPOT_FLAVOR='HIVE'
+myCONF_WEB_USER='netops'
+myCONF_WEB_PW='55N@V6'

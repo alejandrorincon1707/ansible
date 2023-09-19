@@ -1,0 +1,27 @@
+- name: Copiar el archivo hive_sensor.yml
+  copy:
+    src: custom_files/hive_sensor.yml
+    dest: /opt/tpot/etc/compose/hive_sensor.yml
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Reiniciar el servicio tpot
+  ansible.builtin.systemd:
+    name: tpot
+    state: restarted
+
+
+- name: Copiar el archivo deploy.sh
+  copy:
+    src: custom_files/deploy.sh
+    dest: /opt/tpot/bin/deploy.sh
+    owner: root
+    group: root
+    mode: '0644'
+
+- name: Cambiar permisos del archivo deploy.sh
+  ansible.builtin.file:
+    path: /opt/tpot/bin/deploy.sh
+    mode: '+x'  # Agrega el permiso de ejecució
+    

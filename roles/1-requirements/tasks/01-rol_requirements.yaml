@@ -1,0 +1,40 @@
+---
+
+#Todas las acciones aqui descritas afectan a los todos los nodos.
+
+
+# Añadimos al fichero /etc/hosts al master, worker y nfs con las ip´s locales desplegadas en terraform (configuradas en los ficheros de terraform).
+# Al tener las ip´s públicas de Azure en el fichero Host de Ansible, expondremos en el código Ansible las ip´s locales de los hosts.
+
+
+- name: Add lines to hosts file
+  lineinfile:
+    path: /etc/hosts
+    state: present
+    line: "{{ item }}"
+  with_items:
+  - '10.0.1.10 rhbicore.central.cirsa.com '
+  - '10.0.1.11 rhbicas.central.cirsa.com'
+  
+- name: Update package cache
+  apt:
+    update_cache: yes
+
+- name: Install Git
+  apt:
+    name: git
+    state: present
+
+- name: Create folder
+  file:
+    path: /tpot
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+
+- name: Clone TPOTCE Repository
+  git:
+    repo: https://github.com/telekom-security/tpotce.git
+    dest: /tpot
+    update: yes

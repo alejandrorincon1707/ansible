@@ -1,0 +1,5 @@
+# tpot configuration file
+# myCONF_TPOT_FLAVOR=[HIVE_SENSOR]
+myCONF_TPOT_FLAVOR='HIVE_SENSOR'
+myCONF_WEB_USER='sysops'
+myCONF_WEB_PW='55N@V6'

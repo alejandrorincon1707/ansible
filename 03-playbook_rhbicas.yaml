@@ -1,0 +1,7 @@
+---
+
+- name: rhbicas
+  hosts: rhbicas
+  become: yes
+  roles:
+    - 3-rhbicas

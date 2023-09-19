@@ -1,0 +1,17 @@
+[servers]
+rhbicore.central.cirsa.com ansible_host=51.137.202.225
+rhbicas.central.cirsa.com  ansible_host=51.137.203.11
+
+[rhbicore]
+rhbicore.central.cirsa.com
+
+[rhbicas]
+rhbicas.central.cirsa.com
+
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_user=ansible
+
+
+

@@ -1,0 +1,13 @@
+---
+
+- name: Requirements
+  hosts: all
+  become: yes
+  roles:
+    - 1-requirements
+  vars_files:
+    - "group_vars/common.yaml"
+  gather_facts: true
+
+
+
