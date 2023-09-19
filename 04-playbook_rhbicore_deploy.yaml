@@ -1,7 +1,8 @@
 ---
 
 - name: rhbicoredeploy
-  hosts: rhbicorep
+  #hosts: rhbicorep
+  hosts: all
   become: yes
   roles:
     - 4-rhbicoredeploy

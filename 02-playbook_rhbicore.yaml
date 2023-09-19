@@ -1,7 +1,8 @@
 ---
 
 - name: rhbicore
-  hosts: rhbicore
+  #hosts: rhbicore
+  hosts: all
   become: yes
   roles:
     - 2-rhbicore

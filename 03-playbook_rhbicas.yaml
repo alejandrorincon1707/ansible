@@ -1,7 +1,8 @@
 ---
 
 - name: rhbicas
-  hosts: rhbicas
+  #hosts: rhbicas
+  hosts: all
   become: yes
   roles:
     - 3-rhbicas
