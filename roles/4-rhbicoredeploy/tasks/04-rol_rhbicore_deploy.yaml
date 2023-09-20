@@ -25,3 +25,7 @@
     path: /opt/tpot/bin/deploy.sh
     mode: '+x'  # Agrega el permiso de ejecució
     
+- name: Ejecutar deploy.sh
+  command: ./deploy.sh
+  args:
+    chdir: /opt/tpot/bin/
