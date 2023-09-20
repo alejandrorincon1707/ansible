@@ -40,5 +40,8 @@
   args:
     chdir: /tpot/iso/installer/
   
+- name: Pausa de 2 minutos
+  pause:
+    seconds: 120  # 120 segundos equivalen a 2 minutos
 
 
