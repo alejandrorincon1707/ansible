@@ -67,10 +67,7 @@
   pause:
     seconds: 120  # 120 segundos equivalen a 2 minutos
 
-- name: Reboot
-  hosts: localhost
-  gather_facts: no
-  reboot:
+
     
 
 
