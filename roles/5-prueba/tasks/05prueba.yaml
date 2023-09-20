@@ -1,0 +1,4 @@
+- name: Reboot
+  hosts: localhost
+  gather_facts: no
+  reboot:

@@ -1,0 +1,8 @@
+---
+
+- name: rhbicoredeploy
+  #hosts: rhbicorep
+  hosts: all
+  become: yes
+  roles:
+    - 5-prueba
