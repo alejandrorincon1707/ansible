@@ -1,8 +1,3 @@
----
-
 - name: rhbicorereboot
-  #hosts: rhbicorep
-  hosts: all
-  become: yes
   roles:
     - 5-rhbicorereboot
