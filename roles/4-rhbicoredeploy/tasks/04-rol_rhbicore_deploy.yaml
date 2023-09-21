@@ -12,20 +12,20 @@
     state: restarted
 
 
-- name: Copiar el archivo deploy.sh
-  copy:
-    src: custom_files/deploy.sh
-    dest: /opt/tpot/bin/deploy.sh
-    owner: root
-    group: root
-    mode: '0644'
+#- name: Copiar el archivo deploy.sh
+ # copy:
+  #  src: custom_files/deploy.sh
+   # dest: /opt/tpot/bin/deploy.sh
+    #owner: root
+    #group: root
+    #mode: '0644'
 
-- name: Cambiar permisos del archivo deploy.sh
-  ansible.builtin.file:
-    path: /opt/tpot/bin/deploy.sh
-    mode: '+x'  # Agrega el permiso de ejecució
+#- name: Cambiar permisos del archivo deploy.sh
+ # ansible.builtin.file:
+  #  path: /opt/tpot/bin/deploy.sh
+   # mode: '+x'  # Agrega el permiso de ejecució
     
-- name: Ejecutar deploy.sh
-  command: ./deploy.sh
-  args:
-    chdir: /opt/tpot/bin/
+#- name: Ejecutar deploy.sh
+ # command: ./deploy.sh
+  #args:
+   # chdir: /opt/tpot/bin/

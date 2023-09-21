@@ -1,0 +1,9 @@
+---
+- name: Reiniciar máquina local
+  hosts: localhost
+  tasks:
+    - name: Reiniciar la máquina
+      command: "reboot"
+      async: 0
+      poll: 0
+      become: yes
